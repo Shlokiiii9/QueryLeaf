@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Exact QueryLeaf Brand Logo: Slender Leaf with embedded Q -->
+  <g stroke="#1b4d3e" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer Leaf Contour -->
+    <path d="M 100,20
+             L 64,70
+             C 42,98 42,130 52,152
+             C 62,170 82,174 98,174
+             C 108,174 116,170 122,166
+             L 165,178
+             L 152,148
+             C 160,130 160,98 136,70
+             Z" fill="none" />
+    
+    <!-- Central Vertical Spine (Top & Bottom) -->
+    <line x1="100" y1="20" x2="100" y2="96" />
+    <line x1="98" y1="144" x2="98" y2="174" />
+    
+    <!-- Central Q Circle -->
+    <circle cx="99" cy="120" r="24" fill="none" />
+    
+    <!-- Q-Tail (Straight diagonal segment extending down-right) -->
+    <line x1="102" y1="122" x2="130" y2="150" stroke-width="8.5" stroke-linecap="square" />
+    
+    <!-- Upper Left Vein (To vertex at x=64, y=70) -->
+    <line x1="82" y1="103" x2="64" y2="70" />
+    
+    <!-- Upper Right Vein (To vertex at x=136, y=70) -->
+    <line x1="116" y1="103" x2="136" y2="70" />
+    
+    <!-- Lower Left Vein -->
+    <line x1="75" y1="120" x2="44" y2="112" />
+    
+    <!-- Lower Right Vein -->
+    <line x1="123" y1="120" x2="156" y2="112" />
+  </g>
+</svg>

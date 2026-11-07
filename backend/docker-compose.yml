@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Edge MongoDB instance
+  mongo-edge:
+    image: mongo:7.0
+    container_name: greenroute-mongo-edge
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: edge_iot_db
+    volumes:
+      - edge_data:/data/db
+
+  # Separate Cloud MongoDB instance
+  mongo-cloud:
+    image: mongo:7.0
+    container_name: greenroute-mongo-cloud
+    restart: always
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: cloud_iot_warehouse
+    volumes:
+      - cloud_data:/data/db
+
+  # Redis Cache instance
+  redis-cache:
+    image: redis:7.2-alpine
+    container_name: greenroute-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # FastAPI Gateway Backend
+  gateway-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: greenroute-gateway
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - EDGE_MONGO_URI=mongodb://mongo-edge:27017/edge_iot_db
+      - CLOUD_MONGO_URI=mongodb://mongo-cloud:27017/cloud_iot_warehouse
+      - REDIS_URI=redis://redis-cache:6379/0
+      - ACTIVE_POLICY=adaptive
+    depends_on:
+      - mongo-edge
+      - mongo-cloud
+      - redis-cache
+
+volumes:
+  edge_data:
+  cloud_data:
+  redis_data:

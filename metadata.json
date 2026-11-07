@@ -1,0 +1,6 @@
+{
+  "name": "GreenRoute — Smart Energy-Aware API Gateway for IoT",
+  "description": "An intelligent, adaptive API gateway for resource-constrained IoT environments that optimizes execution across local cache, edge database, and cloud storage based on latency, energy consumption, and data freshness.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
